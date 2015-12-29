@@ -1,0 +1,27 @@
+{
+  "type": "branch",
+  "name": "rainmaker/drupal-performance",
+  "downloadBaseUrl": "http://image.rainmaker-dev.com",
+  "profiles": [
+    {
+      "version": "0.1",
+      "mounts": [
+        {
+          "source": "{{container_rootfs}}/var/www/html",
+          "target": "/export/rainmaker/{{container_name}}",
+          "group": "nfs"
+        },
+        {
+          "source": "/srv/saltstack",
+          "target": "{{container_rootfs}}/srv/saltstack",
+          "group": "bind"
+        }
+      ],
+      "exports": [
+        {
+          "source": "/export/rainmaker/{{container_name}}"
+        }
+      ]
+    }
+  ]
+}
